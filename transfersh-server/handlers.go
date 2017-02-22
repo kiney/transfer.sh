@@ -580,20 +580,6 @@ func getHandler(w http.ResponseWriter, r *http.Request) {
 
 func RedirectHandler(h http.Handler) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path == "/health.html" {
-		} else if ipAddrFromRemoteAddr(r.Host) == "127.0.0.1" {
-		} else if strings.HasSuffix(ipAddrFromRemoteAddr(r.Host), ".elasticbeanstalk.com") {
-		} else if ipAddrFromRemoteAddr(r.Host) == "jxm5d6emw5rknovg.onion" {
-		} else if ipAddrFromRemoteAddr(r.Host) == "transfer.sh" {
-			if r.Header.Get("X-Forwarded-Proto") != "https" && r.Method == "GET" {
-				http.Redirect(w, r, "https://transfer.sh"+r.RequestURI, 301)
-				return
-			}
-		} else if ipAddrFromRemoteAddr(r.Host) != "transfer.sh" {
-			http.Redirect(w, r, "https://transfer.sh"+r.RequestURI, 301)
-			return
-		}
-
 		h.ServeHTTP(w, r)
 	}
 }
