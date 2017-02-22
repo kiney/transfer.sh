@@ -1,7 +1,10 @@
 # cleaned up fork of transfer.sh
 This fork of transfer.sh ist "cleaned up" a little:
-- remove google analytics
-- remove annoying redirect
+- removed google analytics
+- removed annoying redirect
+- removed social media buttons
+
+Note that there are still some external references.
 
 _original readme below_
 ---
