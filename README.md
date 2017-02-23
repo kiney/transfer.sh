@@ -6,6 +6,9 @@ This fork of transfer.sh ist "cleaned up" a little:
 
 Note that there are still some external references.
 
+For storage the default was changed from S3 to /srv as a volume - makes more
+sense in small setups.
+
 _original readme below_
 ---
 

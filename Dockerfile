@@ -1,5 +1,5 @@
 FROM golang
-MAINTAINER Remco Verhoef <remco@dutchcoders.io>
+MAINTAINER Jannik Winkel <jannik.winkel@kiney.de>
 
 RUN mkdir -p /go/src/app
 WORKDIR /go/src/app
@@ -13,6 +13,12 @@ RUN go get ./
 # build & install server
 RUN go install . 
 
-ENTRYPOINT ["/go/bin/app", "--port", "8080"]  
+RUN mkdir /data
 
+ENTRYPOINT ["/go/bin/app", "--port", "8080"]  
+CMD ["--provider", "local", "--basedir", "/srv/"]
+
+VOLUME ["/data"]
+
+#TODO: why expose 6060??
 EXPOSE 8080 6060
